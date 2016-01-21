@@ -36,10 +36,16 @@ namespace JN.Demo
 
         public static async void test3()
         {
-            double result = await AsyncMethodLib.GetValueAsync(1234.5d, 1.01d);
+            var num1 = 12d;
+            var num2 = 2d;
+
+            var result = await Task.Run(()=>num1+num2);
 
             Console.WriteLine(string.Format("Value is : {0}", result));
         }
+
+
+       
 
     }
 
