@@ -25,5 +25,6 @@
   "publishExclude": [
     "**.user",
     "**.vspscc"
-  ]
+  ],
+  "userSecretsId": "aspnet5-JN.Html-20160202101722"
 }

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/jquery-2.2.0.js"></script>
+<script src="~/Scripts/jquery.filer.js"></script>
+<link href="/Content/jquery.filer.css" rel="stylesheet" />
+<link href="/Content/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+<script>
+    $(function () {
+        $("#filer_input").filer({
+            limit: 3,
+            maxSize: 3,
+            extensions: ['jpg', 'jpeg', 'png', 'gif'],
+            changeInput: true,
+            showThumbs: true
+        });
+    })
+ 
+</script>
+ 
+
+<form action="/Home/Upload" method="post">
+    <input type="file" name="files[]" id="filer_input" multiple="multiple">
+    <input type="submit" value="Submit">
+</form>
