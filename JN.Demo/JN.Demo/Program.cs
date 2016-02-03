@@ -10,7 +10,7 @@ namespace JN.Demo
     {
         static void Main(string[] args)
         {
-            DynamicDemo.test1();
+            FileAccessDemo.test1();
             Console.ReadLine();
         }
     }
