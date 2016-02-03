@@ -49,7 +49,6 @@
     <Compile Include="DateTimeToStringDemo.cs" />
     <Compile Include="DelegateDemo.cs" />
     <Compile Include="DynamicDemo.cs" />
-    <Compile Include="FileAccessDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StackFrameDemo.cs" />
