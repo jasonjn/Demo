@@ -91,8 +91,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\jquery.filer-dragdropbox-theme.css" />
-    <Content Include="Content\jquery.filer.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -108,7 +106,20 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
-    <Content Include="Scripts\jquery.filer.js" />
+    <Content Include="Scripts\jQuery.filer\assets\fonts\jquery.filer-icons\jquery-filer-preview.html" />
+    <Content Include="Scripts\jQuery.filer\assets\fonts\jquery.filer-icons\jquery-filer.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jQuery.filer\assets\fonts\jquery.filer-icons\jquery-filer.svg" />
+    <Content Include="Scripts\jQuery.filer\index.html" />
+    <Content Include="Scripts\jQuery.filer\js\css\jquery.filer.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jQuery.filer\js\css\themes\jquery.filer-dragdropbox-theme.css" />
+    <Content Include="Scripts\jQuery.filer\js\custom.js" />
+    <Content Include="Scripts\jQuery.filer\js\jquery.filer.js" />
+    <Content Include="Scripts\jQuery.filer\js\jquery.filer.min.js" />
+    <Content Include="Scripts\jQuery.filer\php\readme.txt" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -117,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\UploadedFileInfoArrayBinder.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -127,6 +139,16 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
+    <Content Include="Scripts\jQuery.filer\assets\fonts\jquery.filer-icons\jquery-filer.eot" />
+    <Content Include="Scripts\jQuery.filer\assets\fonts\jquery.filer-icons\jquery-filer.ttf" />
+    <Content Include="Scripts\jQuery.filer\assets\fonts\jquery.filer-icons\jquery-filer.woff" />
+    <Content Include="Scripts\jQuery.filer\bower.json" />
+    <Content Include="Scripts\jQuery.filer\LICENSE" />
+    <Content Include="Scripts\jQuery.filer\package.json" />
+    <Content Include="Scripts\jQuery.filer\php\class.uploader.php" />
+    <Content Include="Scripts\jQuery.filer\php\remove_file.php" />
+    <Content Include="Scripts\jQuery.filer\php\upload.php" />
+    <Content Include="Scripts\jQuery.filer\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

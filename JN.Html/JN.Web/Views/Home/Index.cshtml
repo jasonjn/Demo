@@ -3,25 +3,99 @@
     ViewBag.Title = "Index";
 }
 
-<script src="~/Scripts/jquery-2.2.0.js"></script>
-<script src="~/Scripts/jquery.filer.js"></script>
-<link href="/Content/jquery.filer.css" rel="stylesheet" />
-<link href="/Content/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+<script src="/Scripts/jquery-2.2.0.js"></script>
+<script src="/Scripts/jQuery.filer/js/jquery.filer.js"></script>
+    <link href="/Scripts/jQuery.filer/js/css/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/jQuery.filer/js/css/themes/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+
 <script>
-    $(function () {
-        $("#filer_input").filer({
-            limit: 3,
-            maxSize: 3,
-            extensions: ['jpg', 'jpeg', 'png', 'gif'],
-            changeInput: true,
-            showThumbs: true
-        });
+    $(function () { 
+        $('#filer_input').filer({
+        limit:3,
+        showThumbs: true,
+        addMore:true,
+        templates: {
+            box: '<ul class="jFiler-items-list jFiler-items-grid"></ul>',
+            item: '<li class="jFiler-item">\
+                    <div class="jFiler-item-container">\
+                        <div class="jFiler-item-inner">\
+                            <div class="jFiler-item-thumb">\
+                                <div class="jFiler-item-status"></div>\
+                                <div class="jFiler-item-info">\
+                                    <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+                                    <span class="jFiler-item-others">{{fi-size2}}</span>\
+                                </div>\
+                                {{fi-image}}\
+                            </div>\
+                            <div class="jFiler-item-assets jFiler-row">\
+                                <ul class="list-inline pull-left">\
+                                    <li>{{fi-progressBar}}</li>\
+                                </ul>\
+                                <ul class="list-inline pull-right">\
+                                    <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                </ul>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </li>',
+            itemAppend: '<li class="jFiler-item">\
+                        <div class="jFiler-item-container">\
+                            <div class="jFiler-item-inner">\
+                                <div class="jFiler-item-thumb">\
+                                    <div class="jFiler-item-status"></div>\
+                                    <div class="jFiler-item-info">\
+                                        <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+                                        <span class="jFiler-item-others">{{fi-size2}}</span>\
+                                    </div>\
+                                    {{fi-image}}\
+                                </div>\
+                                <div class="jFiler-item-assets jFiler-row">\
+                                    <ul class="list-inline pull-left">\
+                                        <li><span class="jFiler-item-others">{{fi-icon}}</span></li>\
+                                    </ul>\
+                                    <ul class="list-inline pull-right">\
+                                        <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                    </ul>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </li>',
+            progressBar: '<div class="bar"></div>',
+            itemAppendToEnd: false,
+            removeConfirmation: true,
+            _selectors: {
+                list: '.jFiler-items-list',
+                item: '.jFiler-item',
+                progressBar: '.bar',
+                remove: '.jFiler-item-trash-action'
+            }
+        },
+        uploadFile: {
+            url: "/Home/Upload",
+            data: null,
+            type: 'POST',
+            enctype: 'multipart/form-data',
+            beforeSend: function () { },
+            success: function (data, el) {
+                var parent = el.find(".jFiler-jProgressBar").parent();
+                el.find(".jFiler-jProgressBar").fadeOut("slow", function () {
+                    $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
+                });
+            },
+            error: function (el) {
+                var parent = el.find(".jFiler-jProgressBar").parent();
+                el.find(".jFiler-jProgressBar").fadeOut("slow", function () {
+                    $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");
+                });
+            },
+            statusCode: null,
+            onProgress: null,
+            onComplete: null
+        }
+    });
     })
- 
 </script>
  
-
-<form action="/Home/Upload" method="post">
-    <input type="file" name="files[]" id="filer_input" multiple="multiple">
-    <input type="submit" value="Submit">
-</form>
+    <input type="file" name="excel" id="filer_input" multiple="multiple">
+ 
+ 

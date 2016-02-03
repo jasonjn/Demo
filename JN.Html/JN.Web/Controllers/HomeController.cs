@@ -15,16 +15,17 @@ namespace JN.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Upload()
+        public ActionResult Upload(List<HttpPostedFileBase> excel)
         {
-            var file = Request.InputStream ;
+           // var file = Request.Files["files"] ;
 
-            var memoryStream = new MemoryStream();
-            file.CopyTo(memoryStream);
+           // excel.SaveAs(Path.Combine("D:", excel.FileName));
 
-            System.IO.File.WriteAllBytes(@"D:\img", memoryStream.ToArray());
+          
 
-            return View("Index");
+            return Json(new {
+                    
+            })
         }
     }
 }

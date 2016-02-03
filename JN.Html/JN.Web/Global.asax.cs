@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JN.Web.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,8 @@ namespace JN.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ModelBinders.Binders[typeof(List<HttpPostedFileBase>)] = new UploadedFileInfoArrayBinder();
         }
     }
 }
