@@ -16,7 +16,7 @@ namespace JN.Demo
            
             try
             {
-                  var filepath = @"D:\testest";           
+                var filepath = @"D:\testest";           
                 var fileSecurity = File.GetAccessControl(filepath);             
                 fileSecurity.AddAccessRule(new FileSystemAccessRule("Users", FileSystemRights.FullControl, AccessControlType.Allow));          
                 File.SetAccessControl(filepath,fileSecurity);
