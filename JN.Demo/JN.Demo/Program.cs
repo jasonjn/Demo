@@ -10,7 +10,7 @@ namespace JN.Demo
     {
         static void Main(string[] args)
         {
-            FileAccessDemo.test1();
+            SortDemo.Test1();
             Console.ReadLine();
         }
     }
