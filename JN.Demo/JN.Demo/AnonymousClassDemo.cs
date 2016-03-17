@@ -20,6 +20,15 @@ namespace JN.Demo
                 str.GetType().GetProperty("Age").GetValue(str)));
 
         }
+
+        public static void Test2()
+        {
+            for (;;)//无限循环
+            {
+                Console.WriteLine("1");
+            }
+                    }
+
         private static object GetStudent()
         {
             return new { Name = "strTest", Age = 17 };

@@ -10,7 +10,7 @@ namespace JN.Demo
     {
         static void Main(string[] args)
         {
-            SortDemo.Test1();
+            Cert.Test1();
             Console.ReadLine();
         }
     }
