@@ -17,15 +17,28 @@ namespace JN.Web.Controllers
         [HttpPost]
         public ActionResult Upload(List<HttpPostedFileBase> excel)
         {
-           // var file = Request.Files["files"] ;
+ 
+            excel.FirstOrDefault().SaveAs(Path.Combine(Server.MapPath("/Upload"), excel.First().FileName));
+            return Json(excel.FirstOrDefault().FileName);
+        }
 
-           // excel.SaveAs(Path.Combine("D:", excel.FileName));
+        public ActionResult UploadifyDemo()
+        {
+            return View();
+        }
 
-          
+        [HttpPost]
+        public ActionResult Uploadify(HttpPostedFileBase file)
+        {
+            file.SaveAs(Path.Combine(Server.MapPath("/Upload"), file.FileName));
+            return Json(file.FileName);
+        }
 
-            return Json(new {
-                    
-            })
+        [HttpPost]
+        public ActionResult Delete(string fileName)
+        {
+            System.IO.File.Delete(Path.Combine(Server.MapPath("/Upload"), fileName));
+            return Json("Success");
         }
     }
 }
