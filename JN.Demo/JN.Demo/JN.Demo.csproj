@@ -70,9 +70,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionDemo.cs" />
+    <Compile Include="SecurityDemo.cs" />
     <Compile Include="SortDemo.cs" />
     <Compile Include="StackFrameDemo.cs" />
     <Compile Include="ThreadDemo.cs" />
+    <Compile Include="YieldDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
